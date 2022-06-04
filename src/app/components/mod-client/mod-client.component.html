@@ -1,0 +1,203 @@
+<div class="container ">
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="form" (submit)="clientsave(form)">
+        <div class="mb-3">
+          <label class="form-label">Ragione sociale</label>
+          <input
+            class="form-control"
+            formControlName="ragioneSociale"
+            type="text"
+            id="ragioneSociale"
+            autocpmplete="false"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Partita Iva</label>
+          <input
+            class="form-control"
+            formControlName="patitaiva"
+            type="text"
+            id="partitaIva"
+            autocomplete="false"
+          />
+        </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input
+              class="form-control"
+              formControlName="patitaiva"
+              type="text"
+              id="partitaIva"
+              autocomplete="false"
+            />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tipo Cliente</label>
+          <select
+            class="form-control"
+            formControlName="tipoCliente"
+            id="tipocliente"
+          >
+            <option value="SRL">SRL</option>
+            <option value="SPA">SPA</option>
+            <option value="SAS">SAS</option>
+            <option value="PA">PA</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Pec</label>
+          <input
+            class="form-control"
+            formControlName="pec"
+            type="email"
+            id="pec"
+            autocomplete="false"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Telefono</label>
+          <input
+            class="form-control"
+            formControlName="Telefono"
+            type="tel"
+            id="telefono"
+            autocomplete="false"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nome Contatto</label>
+          <input
+            class="form-control"
+            formControlName="nomecontatto"
+            type="text"
+            id="nomecontatto"
+            autocomplete="false"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Cognome Contatto</label>
+          <input
+            class="form-control"
+            formControlName="cognomeContatto"
+            type="text"
+            id="cognomeContatto"
+            autocomplete="false"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Telefono Contatto</label>
+          <input
+            class="form-control"
+            formControlName="TelefonoContatto"
+            type="tel"
+            id="TelefonoContatto"
+            autocomplete="false"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email contatto</label>
+          <input
+            class="form-control"
+            formControlName="emailContatto"
+            type="email"
+            id="emailContatto"
+            autocomplete="false"
+          />
+        </div>
+        <div formControlName="indirizzoSedeOperativa">
+          <div class="mb-3">
+            <label class="form-label"> Via</label>
+            <input
+              class="form-control"
+              formControlName="via"
+              type="text"
+              id="via"
+              autocomplete="false"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label"> Civico</label>
+            <input
+              class="form-control"
+              formControlName="civico"
+              type="text"
+              id="civico"
+              autocomplete="false"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Cap</label>
+            <input
+              class="form-control"
+              formControlName="cap"
+              type="text"
+              id="cap"
+              autocomplete="false"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Localita</label>
+            <input
+              class="form-control"
+              formControlName="localita"
+              type="text"
+              id="localita"
+              autocomplete="false"
+            />
+          </div>
+          <div formGroupName="comune">
+            <div class="mb-3">
+              <label class="form-label">Comune</label>
+              <select class="form-control" formControlName="id" id="comune">
+                <option value=""></option>
+                <option
+                  *ngFor="let c of comuni"
+                  [attr.selected]="
+                    cliente && c.id === cliente.indirizzoSedeOperativa.comune.id
+                      ? true
+                      : null
+                  "
+                  value="{{ c.id }}"
+                >
+                  {{ c.nome }}
+                </option>
+              </select>
+            </div>
+            <div formGroupName="provincia">
+              <div class="mb-3">
+                <label class="form-label">Provincia</label>
+                <select
+                  class="form-control"
+                  formControlName="provincia"
+                  id="provincia"
+                >
+                  <option value=""></option>
+                  <option
+                    *ngFor="let p of province"
+                    [attr.selected]="
+                      cliente &&
+                      p.id ===
+                        cliente.indirizzoSedeOperativa.comune.provincia.id
+                        ? true
+                        : null
+                    "
+                    value="{{ p.id }}"
+                  >
+                    {{ p.nome }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style ="margin-top: 20px">
+        <button type="submit"
+        class="btn btn-success"
+        > Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

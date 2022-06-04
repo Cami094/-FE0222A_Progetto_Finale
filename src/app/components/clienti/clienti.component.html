@@ -1,0 +1,90 @@
+<div class="bottone1">
+  <button
+    class="btn btn-warning  "
+    [routerLink]="['/nuoveclient']"
+  >
+    Aggiungi Cliente
+  </button>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let cliente of arrClienti; let i = index" class="col-sm-6">
+      <div class="card m-3">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ cliente.nomeContatto + " " + cliente.cognomeContatto }}
+          </h5>
+          <p class="card-text">{{ cliente.email }}</p>
+          <p class="card-text">{{ cliente.ragioneSociale }}</p>
+
+          <button
+            class="btn btn-dark m-1"
+            [routerLink]="['/fatture-client', cliente.id]"
+          >
+            Fatture
+          </button>
+          <button
+            class="btn btn-warning m-1"
+            [routerLink]="['/mod-client', cliente.id]"
+          >
+            Modifica
+          </button>
+
+
+          <button
+            class="noselect"
+            id="btn1"
+            (click)="
+              $event.preventDefault();
+              confirmDelete(cliente.ragioneSociale, cliente.id, i)
+            "
+            class="btn btn-danger"
+          >
+            <span class="text">Delete</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="conteinernav">
+  <div class="pagina">
+    <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+      <ul class="pagination" *ngIf="response">
+        <li class="page-item" *ngIf="!response.first">
+          <a
+            class="page-link"
+            (click)="$event.preventDefault(); CambiaPagina(response.number - 1)"
+            href="#"
+            >Previous</a
+          >
+        </li>
+        <li
+          class="page-item"
+          *ngFor="let p of counter(response.totalPages); index as i"
+          [ngClass]="i == response.number ? 'active' : ''"
+        >
+          <a
+            class="page-link"
+            (click)="$event.preventDefault(); CambiaPagina(i)"
+            href="#"
+            >{{ i + 1 }}</a
+          >
+        </li>
+        <li class="page-item" *ngIf="!response.last">
+          <a
+            class="page-link"
+            (click)="$event.preventDefault(); CambiaPagina(response.number + 1)"
+            href="#"
+            >Next</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+

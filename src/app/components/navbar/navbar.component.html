@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CMR </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/']"
+            routerLinkActive="active"
+
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >LOGIN!</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/signup']"
+            routerLinkActive="active"
+            >signup!</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/list-utenti']"
+            routerLinkActive="active"
+            >Utente</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/clienti']"
+            routerLinkActive="active"
+            >Clienti</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/facturegeneral']"
+            routerLinkActive="active"
+            >Facture</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <button (click)="logout()" class="m-2">Uscire</button>
+</nav>

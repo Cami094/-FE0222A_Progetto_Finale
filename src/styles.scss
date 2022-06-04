@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body{
+  margin:0;
+  padding:0;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  background: linear-gradient( to bottom, #010103,#201d49,#2b0b27) ;
+}
